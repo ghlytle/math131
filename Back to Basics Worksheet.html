@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Operations &amp; Expressions</title>
+
+<!-- MathJax 3 — mimics PreTeXt's default math rendering -->
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    displayMath: [['\\[','\\]']],
+    tags: 'none',
+    macros: { ds: '\\displaystyle' }
+  },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" id="MathJax-script" async></script>
+
+<style>
+/* ---------------------------------------------------------------
+   Base — mirrors PreTeXt's default HTML stylesheet structure
+--------------------------------------------------------------- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: "Georgia", serif;
+  font-size: 16px;
+  line-height: 1.75;
+  color: #1a1a1a;
+  background: #fff;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 4rem;
+}
+
+/* ---- Article title ---- */
+.ptx-article-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 2.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #2060a0;
+  color: #2060a0;
+}
+
+/* ---- Worksheet ---- */
+.ptx-worksheet {
+  margin-bottom: 3rem;
+}
+
+.ptx-worksheet-title {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #2060a0;
+  margin-bottom: 0.25rem;
+  padding-bottom: 0.2rem;
+  border-bottom: 1px solid #ccc;
+}
+
+.ptx-worksheet-intro {
+  margin: 0.75rem 0 1.25rem;
+  font-style: italic;
+  color: #444;
+}
+
+/* ---- Exercise ---- */
+.ptx-exercise {
+  margin-bottom: 1.75rem;
+  padding-left: 0;
+}
+
+.ptx-exercise-header {
+  display: flex;
+  gap: 0.6rem;
+  align-items: baseline;
+  margin-bottom: 0.4rem;
+}
+
+.ptx-exercise-number {
+  font-weight: 700;
+  color: #2060a0;
+  min-width: 1.8rem;
+  flex-shrink: 0;
+}
+
+.ptx-exercise-statement {
+  flex: 1;
+}
+
+.ptx-exercise-statement p {
+  margin-bottom: 0.5rem;
+}
+
+/* ---- Solution (hidden by default, toggle via button) ---- */
+.ptx-solution {
+  margin-top: 0.6rem;
+  margin-left: 2.4rem;
+  border-left: 3px solid #2060a0;
+  padding: 0.6rem 0.9rem;
+  background: #f4f8ff;
+  border-radius: 0 4px 4px 0;
+  display: none;
+}
+
+.ptx-solution.visible {
+  display: block;
+}
+
+.ptx-solution-label {
+  font-variant: small-caps;
+  font-weight: 700;
+  color: #2060a0;
+  font-size: 0.85rem;
+  margin-bottom: 0.4rem;
+  letter-spacing: 0.03em;
+}
+
+.ptx-solution p {
+  margin-bottom: 0.5rem;
+}
+
+.ptx-solution p:last-child {
+  margin-bottom: 0;
+}
+
+/* ---- Toggle button — PreTeXt uses knowls for this ---- */
+.knowl-trigger {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-family: sans-serif;
+  color: #2060a0;
+  border: 1px solid #2060a0;
+  border-radius: 3px;
+  padding: 1px 7px;
+  cursor: pointer;
+  background: transparent;
+  margin-left: 0.5rem;
+  vertical-align: middle;
+  line-height: 1.4;
+  text-decoration: none;
+  user-select: none;
+}
+.knowl-trigger:hover { background: #e8f0fb; }
+
+/* ---- Show-all bar ---- */
+.ptx-controls {
+  margin-bottom: 1rem;
+  font-family: sans-serif;
+}
+
+.ptx-show-all {
+  font-size: 0.8rem;
+  color: #555;
+  border: 1px solid #aaa;
+  border-radius: 3px;
+  padding: 2px 10px;
+  cursor: pointer;
+  background: transparent;
+}
+.ptx-show-all:hover { background: #f0f0f0; }
+
+/* ---- Display math spacing ---- */
+.MJX-TeXAtom-ORD { }
+mjx-container { margin: 0.6rem 0; }
+
+/* ---- HR between sides ---- */
+.ptx-divider {
+  border: none;
+  border-top: 1px solid #bbb;
+  margin: 2.5rem 0;
+}
+</style>
+</head>
+<body>
+
+<article id="operations-and-expressions">
+<h1 class="ptx-article-title">Operations &amp; Expressions</h1>
+
+<!-- ============================================================
+     WORKSHEET: Side A
+============================================================ -->
+<section class="ptx-worksheet" id="side-a">
+  <h2 class="ptx-worksheet-title">Side A — Numerical Expressions</h2>
+  <div class="ptx-worksheet-intro">
+    <p>Simplify the following numerical expressions.</p>
+  </div>
+
+  <div class="ptx-controls">
+    <button class="ptx-show-all" onclick="toggleAll('a')">Show all solutions</button>
+  </div>
+
+  <!-- Exercise A1 -->
+  <div class="ptx-exercise" id="exercise-a1">
+    <div class="ptx-exercise-header">
+      <span class="ptx-exercise-number">1.</span>
+      <div class="ptx-exercise-statement">
+        <p>Simplify:
+          \[ 5\!\left(-\frac{1}{3}\right) - 3\!\left(-\frac{1}{2}\right)
+             + 7\!\left(-\frac{2}{3}\right) + 1 \]
+        </p>
+        <button class="knowl-trigger" onclick="toggleSolution('sol-a1', this)">Solution</button>
+      </div>
+    </div>
+    <div class="ptx-solution" id="sol-a1">
+      <div class="ptx-solution-label">Solution.</div>
+      <p>Multiply each term:
+        \[ -\frac{5}{3} + \frac{3}{2} - \frac{14}{3} + 1 \]
+      </p>
+      <p>Convert to a common denominator of 6:
+        \[ -\frac{10}{6} + \frac{9}{6} - \frac{28}{6} + \frac{6}{6} \]
+      </p>
+      <p>Combine numerators:
+        \[ \frac{-10 + 9 - 28 + 6}{6} = \frac{-23}{6} = -\frac{23}{6} \]
+      </p>
+    </div>
+  </div>
+
+  <!-- Exercise A2 -->
+  <div class="ptx-exercise" id="exercise-a2">
+    <div class="ptx-exercise-header">
+      <span class="ptx-exercise-number">2.</span>
+      <div class="ptx-exercise-statement">
+        <p>Simplify:
+          \[ (-6)\cdot 3 \div (-2) - 8 \div (-4) \]
+        </p>
+        <button class="knowl-trigger" onclick="toggleSolution('sol-a2', this)">Solution</button>
+      </div>
+    </div>
+    <div class="ptx-solution" id="sol-a2">
+      <div class="ptx-solution-label">Solution.</div>
+      <p>Work left to right, applying multiplication and division in order:
+        \[\begin{aligned}
+          (-6)\cdot 3 &= -18 \\
+          -18 \div (-2) &= 9 \\
+          8 \div (-4) &= -2
+        \end{aligned}\]
+      </p>
+      <p>Subtract the second result:
+        \[ 9 - (-2) = 9 + 2 = 11 \]
+      </p>
+    </div>
+  </div>
+
+  <!-- Exercise A3 -->
+  <div class="ptx-exercise" id="exercise-a3">
+    <div class="ptx-exercise-header">
+      <span class="ptx-exercise-number">3.</span>
+      <div class="ptx-exercise-statement">
+        <p>Simplify:
+          \[ 3(-2)^3 + 4(-2)^2 - 9(-2) - 14 \]
+        </p>
+        <button class="knowl-trigger" onclick="toggleSolution('sol-a3', this)">Solution</button>
+      </div>
+    </div>
+    <div class="ptx-solution" id="sol-a3">
+      <div class="ptx-solution-label">Solution.</div>
+      <p>Evaluate each power:
+        \[ (-2)^3 = -8, \qquad (-2)^2 = 4 \]
+      </p>
+      <p>Substitute and multiply:
+        \[ 3(-8) + 4(4) - 9(-2) - 14 = -24 + 16 + 18 - 14 \]
+      </p>
+      <p>Combine:
+        \[ -4 \]
+      </p>
+    </div>
+  </div>
+
+</section>
+
+<hr class="ptx-divider">
+
+<!-- ============================================================
+     WORKSHEET: Side B
+============================================================ -->
+<section class="ptx-worksheet" id="side-b">
+  <h2 class="ptx-worksheet-title">Side B — Algebraic Expressions</h2>
+  <div class="ptx-worksheet-intro">
+    <p>Simplify the expressions.</p>
+  </div>
+
+  <div class="ptx-controls">
+    <button class="ptx-show-all" onclick="toggleAll('b')">Show all solutions</button>
+  </div>
+
+  <!-- Exercise B1 -->
+  <div class="ptx-exercise" id="exercise-b1">
+    <div class="ptx-exercise-header">
+      <span class="ptx-exercise-number">1.</span>
+      <div class="ptx-exercise-statement">
+        <p>Simplify: \(2(m-3)+5(m+1)\)</p>
+        <button class="knowl-trigger" onclick="toggleSolution('sol-b1', this)">Solution</button>
+      </div>
+    </div>
+    <div class="ptx-solution" id="sol-b1">
+      <div class="ptx-solution-label">Solution.</div>
+      <p>Distribute:
+        \[ 2m - 6 + 5m + 5 \]
+      </p>
+      <p>Combine like terms:
+        \[ 7m - 1 \]
+      </p>
+    </div>
+  </div>
+
+  <!-- Exercise B2 -->
+  <div class="ptx-exercise" id="exercise-b2">
+    <div class="ptx-exercise-header">
+      <span class="ptx-exercise-number">2.</span>
+      <div class="ptx-exercise-statement">
+        <p>Simplify: \(-3(m-2n)+(m+2n)\)</p>
+        <button class="knowl-trigger" onclick="toggleSolution('sol-b2', this)">Solution</button>
+      </div>
+    </div>
+    <div class="ptx-solution" id="sol-b2">
+      <div class="ptx-solution-label">Solution.</div>
+      <p>Distribute:
+        \[ -3m + 6n + m + 2n \]
+      </p>
+      <p>Combine like terms:
+        \[ -2m + 8n \]
+      </p>
+    </div>
+  </div>
+
+  <!-- Exercise B3 -->
+  <div class="ptx-exercise" id="exercise-b3">
+    <div class="ptx-exercise-header">
+      <span class="ptx-exercise-number">3.</span>
+      <div class="ptx-exercise-statement">
+        <p>Simplify: \(8xy^2 - 5x^2y + 2xy^2 + 7x^2y\)</p>
+        <button class="knowl-trigger" onclick="toggleSolution('sol-b3', this)">Solution</button>
+      </div>
+    </div>
+    <div class="ptx-solution" id="sol-b3">
+      <div class="ptx-solution-label">Solution.</div>
+      <p>Group like terms (\(xy^2\) terms and \(x^2y\) terms):
+        \[ (8xy^2 + 2xy^2) + (-5x^2y + 7x^2y) \]
+      </p>
+      <p>Combine each group:
+        \[ 10xy^2 + 2x^2y \]
+      </p>
+    </div>
+  </div>
+
+  <!-- Exercise B4 -->
+  <div class="ptx-exercise" id="exercise-b4">
+    <div class="ptx-exercise-header">
+      <span class="ptx-exercise-number">4.</span>
+      <div class="ptx-exercise-statement">
+        <p>Evaluate \(5(x-2y)-3(2x+y)-2(x-y)\)
+           when \(x = \dfrac{1}{3}\) and \(y = -\dfrac{3}{4}\).</p>
+        <button class="knowl-trigger" onclick="toggleSolution('sol-b4', this)">Solution</button>
+      </div>
+    </div>
+    <div class="ptx-solution" id="sol-b4">
+      <div class="ptx-solution-label">Solution.</div>
+      <p>Distribute and collect like terms first:
+        \[\begin{aligned}
+          &= 5x - 10y - 6x - 3y - 2x + 2y \\
+          &= (5x - 6x - 2x) + (-10y - 3y + 2y) \\
+          &= -3x - 11y
+        \end{aligned}\]
+      </p>
+      <p>Substitute \(x = \dfrac{1}{3}\) and \(y = -\dfrac{3}{4}\):
+        \[\begin{aligned}
+          &= -3\!\left(\frac{1}{3}\right) - 11\!\left(-\frac{3}{4}\right) \\
+          &= -1 + \frac{33}{4} \\
+          &= -\frac{4}{4} + \frac{33}{4} = \frac{29}{4}
+        \end{aligned}\]
+      </p>
+    </div>
+  </div>
+
+  <!-- Exercise B5 -->
+  <div class="ptx-exercise" id="exercise-b5">
+    <div class="ptx-exercise-header">
+      <span class="ptx-exercise-number">5.</span>
+      <div class="ptx-exercise-statement">
+        <p>Evaluate \(3(x^2-1)-4(x^2+1)-(2x^2-1)\)
+           when \(x = \dfrac{2}{3}\).</p>
+        <button class="knowl-trigger" onclick="toggleSolution('sol-b5', this)">Solution</button>
+      </div>
+    </div>
+    <div class="ptx-solution" id="sol-b5">
+      <div class="ptx-solution-label">Solution.</div>
+      <p>Distribute and collect like terms first:
+        \[\begin{aligned}
+          &= 3x^2 - 3 - 4x^2 - 4 - 2x^2 + 1 \\
+          &= (3x^2 - 4x^2 - 2x^2) + (-3 - 4 + 1) \\
+          &= -3x^2 - 6
+        \end{aligned}\]
+      </p>
+      <p>Substitute \(x = \dfrac{2}{3}\), so \(x^2 = \dfrac{4}{9}\):
+        \[\begin{aligned}
+          &= -3\!\left(\frac{4}{9}\right) - 6 \\
+          &= -\frac{12}{9} - 6 \\
+          &= -\frac{4}{3} - \frac{18}{3} = -\frac{22}{3}
+        \end{aligned}\]
+      </p>
+    </div>
+  </div>
+
+</section>
+</article>
+
+<script>
+/* Knowl-style solution toggle */
+function toggleSolution(id, btn) {
+  const sol = document.getElementById(id);
+  const open = sol.classList.toggle('visible');
+  btn.textContent = open ? 'Hide' : 'Solution';
+  if (open && window.MathJax) MathJax.typesetPromise([sol]);
+}
+
+/* Show/hide all in a side */
+const sidesMap = {
+  a: ['sol-a1','sol-a2','sol-a3'],
+  b: ['sol-b1','sol-b2','sol-b3','sol-b4','sol-b5']
+};
+const sideState = { a: false, b: false };
+
+function toggleAll(side) {
+  const next = !sideState[side];
+  sideState[side] = next;
+  sidesMap[side].forEach(id => {
+    document.getElementById(id).classList.toggle('visible', next);
+  });
+  /* update individual buttons */
+  document.querySelectorAll('#side-' + side + ' .knowl-trigger').forEach(btn => {
+    btn.textContent = next ? 'Hide' : 'Solution';
+  });
+  /* update show-all button label */
+  const showAllBtns = document.querySelectorAll('#side-' + side + ' .ptx-show-all');
+  showAllBtns.forEach(b => b.textContent = next ? 'Hide all solutions' : 'Show all solutions');
+  if (next && window.MathJax) MathJax.typesetPromise();
+}
+</script>
+
+</body>
+</html>
