@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Math 131 course materials, including Unit 1 notes and worksheets.">
+  <title>Math 131 | Course Materials</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #172033;
+      --muted: #536176;
+      --accent: #2457a7;
+      --paper: #ffffff;
+      --background: #f3f6fb;
+      --border: #dce4ef;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--background);
+      color: var(--ink);
+      font: 16px/1.6 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    main {
+      width: min(760px, calc(100% - 2rem));
+      margin: 4rem auto;
+    }
+
+    .intro { margin-bottom: 2rem; }
+    h1 { margin: 0 0 .5rem; font-size: clamp(2rem, 6vw, 3rem); line-height: 1.15; }
+    h2 { margin: 0 0 .4rem; font-size: 1.2rem; }
+    p { margin: .35rem 0 0; color: var(--muted); }
+
+    .materials { display: grid; gap: 1rem; }
+
+    .card {
+      display: block;
+      padding: 1.25rem 1.5rem;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: var(--paper);
+      color: inherit;
+      text-decoration: none;
+      box-shadow: 0 2px 8px rgb(23 32 51 / 5%);
+      transition: border-color .15s ease, transform .15s ease, box-shadow .15s ease;
+    }
+
+    .card:hover, .card:focus-visible {
+      border-color: var(--accent);
+      box-shadow: 0 5px 16px rgb(23 32 51 / 10%);
+      transform: translateY(-2px);
+    }
+
+    .card:focus-visible { outline: 3px solid #9bb9ed; outline-offset: 3px; }
+    .card h2 { color: var(--accent); }
+
+    footer { margin-top: 2rem; color: var(--muted); font-size: .9rem; }
+
+    @media (max-width: 600px) {
+      main { margin: 2.5rem auto; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header class="intro">
+      <h1>Math 131</h1>
+      <p>Course materials and practice resources.</p>
+    </header>
+
+    <section class="materials" aria-label="Course materials">
+      <a class="card" href="Unit1/index.html">
+        <h2>Unit 1: Linear Equations</h2>
+        <p>Read the Unit 1 notes, sections, and exam review.</p>
+      </a>
+
+      <a class="card" href="Back%20to%20Basics%20Worksheet.html">
+        <h2>Back to Basics Worksheet</h2>
+        <p>Open the worksheet for additional practice.</p>
+      </a>
+    </section>
+
+    <footer>
+      <p>More course materials can be added here as they become available.</p>
+    </footer>
+  </main>
+</body>
+</html>
